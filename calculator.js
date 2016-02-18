@@ -1,4 +1,6 @@
-var value=""
+var value="";
+var operation="";
+var firstoperand="";
 var display=document.getElementById("display");
 var button = document.getElementById("button-C");
 button.onclick = function(e) { 
@@ -16,4 +18,42 @@ for (var i=0; i<10;i++){
 		display.innerHTML=value;
 	};
 	 }) (i);
+}
+
+var plus = document.getElementById("button-+");
+plus.onclick = function(e) {
+	firstoperand=value;
+	display.innerHTML=value+"+";
+	value="";
+	operation="+";
+}
+
+var times = document.getElementById("button-multiply");
+times.onclick = function(e) {
+	firstoperand = value;
+	display.innerHTML=value+"*";
+	value="";
+	operation="*";
+}
+var decimal = document.getElementById("button-.");
+decimal.onclick=function(e){
+	value = value+".";
+	display.innerHTML=value;
+}
+var equals = document.getElementById("button-=");
+equals.onclick=function(e){
+	
+	if (operation=="+")
+	{
+		operation="=";
+		var sum = parseFloat(firstoperand, 10) + parseFloat(value, 10);
+		display.innerHTML=sum;
+		firstoperand="";
+	}
+	else if (operation=="*"){
+		operation="=";
+		var prod = parseFloat(firstoperand, 10) * parseFloat(value, 10);
+		display.innerHTML=prod;
+		firstoperand="";
+	}
 }
