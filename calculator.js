@@ -22,11 +22,12 @@ for (var i=0; i<10;i++){
 
 var plus = document.getElementById("button-+");
 plus.onclick = function(e) {
+
 	firstoperand=value;
 	display.innerHTML=value+"+";
 	value="";
 	operation="+";
-}
+};
 
 var times = document.getElementById("button-multiply");
 times.onclick = function(e) {
@@ -34,12 +35,44 @@ times.onclick = function(e) {
 	display.innerHTML=value+"*";
 	value="";
 	operation="*";
+};
+
+var divide = document.getElementById("button-divide");
+divide.onclick = function(e) {
+	firstoperand = value;
+	display.innerHTML = value +" &divide;";
+	value = "";
+	operation="/";
+
+};
+
+var subtract = document.getElementById("button--");
+subtract.onclick = function(e) {
+	firstoperand = value;
+	display.innerHTML = value + "-";
+	value = "";
+	operation = "-";
 }
+
+var plusmninus = document.getElementById("button-+-");
+plusmninus.onclick = function(e) {
+	
+	if (value[0]=='-'){
+		value=value.slice(1,value.length);
+		display.innerHTML = value;
+	}
+	else {
+		value = "-" + value;
+		display.innerHTML=value;
+	}
+
+}
+
 var decimal = document.getElementById("button-.");
 decimal.onclick=function(e){
 	value = value+".";
 	display.innerHTML=value;
-}
+};
 var equals = document.getElementById("button-=");
 equals.onclick=function(e){
 	
@@ -55,5 +88,18 @@ equals.onclick=function(e){
 		var prod = parseFloat(firstoperand, 10) * parseFloat(value, 10);
 		display.innerHTML=prod;
 		firstoperand="";
+	}
+
+	else if (operation=="/") {
+		operation="=";
+		var quot = parseFloat(firstoperand, 10) / parseFloat(value, 10);
+		display.innerHTML=quot;
+		firstoperand="";
+	}
+	else if (operation =="-") {
+		operation = "-";
+		var diff = parseFloat(firstoperand, 10 ) - parseFloat(value, 10);
+		display.innerHTML = diff;
+		firstoperand = "";
 	}
 }
