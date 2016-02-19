@@ -2,6 +2,8 @@ var value="";
 var operation="";
 var firstoperand="";
 var display=document.getElementById("display");
+
+
 var button = document.getElementById("button-C");
 button.onclick = function(e) { 
 	display.innerHTML="0";
@@ -15,7 +17,8 @@ for (var i=0; i<10;i++){
 	clicked.onclick=function(e) {
 		//display.innerHTML=i;
 		value=value+String(i);
-		display.innerHTML=value;
+		display.innerHTML=value+
+		"<div id = \"operator\"></div>"
 	};
 	 }) (i);
 }
@@ -24,7 +27,7 @@ var plus = document.getElementById("button-+");
 plus.onclick = function(e) {
 
 	firstoperand=value;
-	display.innerHTML=value+"+";
+	document.getElementById("operator").innerHTML="+";
 	value="";
 	operation="+";
 };
@@ -32,7 +35,7 @@ plus.onclick = function(e) {
 var times = document.getElementById("button-multiply");
 times.onclick = function(e) {
 	firstoperand = value;
-	display.innerHTML=value+"*";
+	document.getElementById("operator").innerHTML=" &#215;";
 	value="";
 	operation="*";
 };
@@ -40,7 +43,7 @@ times.onclick = function(e) {
 var divide = document.getElementById("button-divide");
 divide.onclick = function(e) {
 	firstoperand = value;
-	display.innerHTML = value +" &divide;";
+	document.getElementById("operator").innerHTML=" &divide;";
 	value = "";
 	operation="/";
 
@@ -49,7 +52,7 @@ divide.onclick = function(e) {
 var subtract = document.getElementById("button--");
 subtract.onclick = function(e) {
 	firstoperand = value;
-	display.innerHTML = value + "-";
+	document.getElementById("operator").innerHTML=" -";
 	value = "";
 	operation = "-";
 }
