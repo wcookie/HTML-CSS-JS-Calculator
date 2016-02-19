@@ -59,16 +59,16 @@ subtract.onclick = function(e) {
 
 var plusmninus = document.getElementById("button-+-");
 plusmninus.onclick = function(e) {
-	
-	if (value[0]=='-'){
-		value=value.slice(1,value.length);
-		display.innerHTML = value;
+	if (value!="0" && firstoperand !="0"){
+		if (value[0]=='-'){
+			value=value.slice(1,value.length);
+			display.innerHTML = value;
+		}
+		else {
+			value = "-" + value;
+			display.innerHTML=value;
+		}
 	}
-	else {
-		value = "-" + value;
-		display.innerHTML=value;
-	}
-
 }
 
 var decimal = document.getElementById("button-.");
