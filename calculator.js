@@ -17,7 +17,7 @@ for (var i=0; i<10;i++){
 	clicked.onclick=function(e) {
 		
 		
-		if (value=="" || value.match(/\d/g).length <27){
+		if ((value=="" || value.match(/\d/g).length <27) && (value!=""   || i!=0)){
 
 		value=value+String(i);
 		display.innerHTML=value+
