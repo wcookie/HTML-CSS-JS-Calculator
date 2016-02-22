@@ -15,10 +15,14 @@ for (var i=0; i<10;i++){
 	var string = "button-"+i;
 	var clicked = document.getElementById(string);
 	clicked.onclick=function(e) {
-		//display.innerHTML=i;
+		
+		
+		if (value=="" || value.match(/\d/g).length <27){
+
 		value=value+String(i);
 		display.innerHTML=value+
 		"<div id = \"operator\"></div>"
+}
 	};
 	 }) (i);
 }
@@ -82,26 +86,50 @@ equals.onclick=function(e){
 	if (operation=="+")
 	{
 		operation="=";
-		var sum = parseFloat(firstoperand, 10) + parseFloat(value, 10);
+		if (value!=""){
+			var sum = parseFloat(firstoperand, 10) + parseFloat(value, 10);
+		}
+		else{
+			var sum = 2* parseFloat(firstoperand, 10);
+		}
+		value=sum;
 		display.innerHTML=sum;
 		firstoperand="";
 	}
 	else if (operation=="*"){
 		operation="=";
-		var prod = parseFloat(firstoperand, 10) * parseFloat(value, 10);
+		if (value!=""){
+			var prod = parseFloat(firstoperand, 10) * parseFloat(value, 10);
+		}
+		else{
+			var prod = parseFloat(firstoperand, 10) * parseFloat(firstoperand, 10);
+		}
+		value=prod;
 		display.innerHTML=prod;
 		firstoperand="";
 	}
 
 	else if (operation=="/") {
 		operation="=";
-		var quot = parseFloat(firstoperand, 10) / parseFloat(value, 10);
+		if (value!=""){
+			var quot = parseFloat(firstoperand, 10) / parseFloat(value, 10);
+		}
+		else{
+			var quot = 1;
+		}
+		value=quot;
 		display.innerHTML=quot;
 		firstoperand="";
 	}
 	else if (operation =="-") {
 		operation = "-";
-		var diff = parseFloat(firstoperand, 10 ) - parseFloat(value, 10);
+		if (value!=""){
+			var diff = parseFloat(firstoperand, 10 ) - parseFloat(value, 10);
+		}
+		else{
+			var diff = 0;
+		}
+		value=diff;
 		display.innerHTML = diff;
 		firstoperand = "";
 	}
