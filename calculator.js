@@ -71,7 +71,8 @@ plusmninus.onclick = function(e) {
 		}
 		else {
 			value = "-" + value;
-			display.innerHTML=value;
+			display.innerHTML=value+
+			"<div id = \"operator\"></div>";
 		}
 	}
 }
