@@ -17,7 +17,7 @@ for (var i=0; i<10;i++){
 	clicked.onclick=function(e) {
 		
 		
-		if ((value=="" || value.match(/\d/g).length <27) && (value!=""   || i!=0)){
+		if (value=="." ||(value=="" || value.match(/\d/g).length <27) && (value!=""   || i!=0)){
 
 		value=value+String(i);
 		display.innerHTML=value+
@@ -38,6 +38,7 @@ plus.onclick = function(e) {
 
 var times = document.getElementById("button-multiply");
 times.onclick = function(e) {
+
 	firstoperand = value;
 	document.getElementById("operator").innerHTML=" &#215;";
 	value="";
@@ -92,8 +93,9 @@ equals.onclick=function(e){
 		else{
 			var sum = 2* parseFloat(firstoperand, 10);
 		}
-		value=sum;
-		display.innerHTML=sum;
+		value=String(sum);
+		display.innerHTML=sum+
+		"<div id = \"operator\"></div>";
 		firstoperand="";
 	}
 	else if (operation=="*"){
@@ -104,8 +106,9 @@ equals.onclick=function(e){
 		else{
 			var prod = parseFloat(firstoperand, 10) * parseFloat(firstoperand, 10);
 		}
-		value=prod;
-		display.innerHTML=prod;
+		value=String(prod);
+		display.innerHTML=prod+
+		"<div id = \"operator\"></div>";
 		firstoperand="";
 	}
 
@@ -117,20 +120,22 @@ equals.onclick=function(e){
 		else{
 			var quot = 1;
 		}
-		value=quot;
-		display.innerHTML=quot;
+		value=String(quot);
+		display.innerHTML=quot+
+		"<div id = \"operator\"></div>";
 		firstoperand="";
 	}
 	else if (operation =="-") {
-		operation = "-";
+		operation = "=";
 		if (value!=""){
 			var diff = parseFloat(firstoperand, 10 ) - parseFloat(value, 10);
 		}
 		else{
 			var diff = 0;
 		}
-		value=diff;
-		display.innerHTML = diff;
+		value=String(diff);
+		display.innerHTML = diff+
+		"<div id = \"operator\"></div>";
 		firstoperand = "";
 	}
 }
